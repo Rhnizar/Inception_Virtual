@@ -37,7 +37,7 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 # Expose port 9000 for php-fpm
 EXPOSE 9000
 
-COPY config.sh /config.sh
+COPY ./conf/config.sh /config.sh
 
 ENTRYPOINT ["sh", "/config.sh"]
 

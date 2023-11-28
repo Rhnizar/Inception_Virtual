@@ -1,16 +1,18 @@
 
-NAME = Inception
+NAME = inception
 
-all:
-	docker compose -f -p ${NAME} srcs/docker-compose.yml up
+all: init
+	docker compose -p ${NAME} -f srcs/docker-compose.yml up
+
+init:
+	sh srcs/requirements/tools/init.sh
 
 clean:
-	docker compose -f -p ${NAME} srcs/docker-compose.yml down
+	docker compose -p ${NAME} -f srcs/docker-compose.yml down
 
 fclean: clean
-	sudo rm -rf /home/${USER}/data/db/*
-	sudo rm -rf /home/${USER}/data/wp/*
-	docker system prune -a 
+	sudo rm -rf /home/${USER}/data
+	docker system prune -a
 
 re: fclean all
 
