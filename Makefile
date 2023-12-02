@@ -8,7 +8,7 @@ init:
 	sh srcs/requirements/tools/init.sh
 
 clean:
-	docker compose -p ${NAME} -f srcs/docker-compose.yml down
+	docker compose -p ${NAME} -f srcs/docker-compose.yml down -v
 
 fclean: clean
 	sudo rm -rf /home/${USER}/data

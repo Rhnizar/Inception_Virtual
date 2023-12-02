@@ -22,6 +22,6 @@ cp  wp-config-sample.php wp-config.php
 echo "Installing WordPress ..."
 wp core install --allow-root --url=${DOMAINE_NAME} --title=${TITLE} --admin_user=${ADMIN_USER} --admin_password=${ADMIN_PASS} --admin_email=${ADMIN_EMAIL}
 echo "Creating users..."
-wp user create rhnizar rhnizar@gmail.com --role=administrator --user_pass=0000 --path=/var/www/html/wordpress --allow-root
+wp user create ${WP_USER} ${WP_USER_EMAIL} --role=editor --user_pass=${WP_USER_PASS} --path=/var/www/html/wordpress --allow-root
 
 exec php-fpm7 -F
